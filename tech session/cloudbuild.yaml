@@ -13,6 +13,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   entrypoint: 'bash'
   args: 
+  - run
   - '-c'
   - |
     while IFS=' ' read -r deplname path; do
@@ -22,5 +23,12 @@ steps:
       sed -i "s/$deplname/kpt-test-deployment/g" Kptfile &&
       sed -i "s/$SHORT_SHA/tag/g" deployment.yaml &&
     done < ./consumer_names.txt
+  
+ # - --filename=./test/consumer-*
+  #- --filename=./test/consumer-02
+  #- --name=jahsdj
+  #- --image=gcr.io/folkloric-folio-358909/private/service:$SHORT_SHA
+  - --location=us-central1-a
+  - --cluster=kpt-tech
 options:
  logging: CLOUD_LOGGING_ONLY
