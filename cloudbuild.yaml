@@ -36,6 +36,6 @@ steps:
   #- --image=gcr.io/folkloric-folio-358909/private/service:$SHORT_SHA
  # - --location=asia-south1
  # - --cluster=tech-session
- */
+ 
 options:
  logging: CLOUD_LOGGING_ONLY
