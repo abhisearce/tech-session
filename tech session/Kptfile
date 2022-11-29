@@ -8,7 +8,7 @@ pipeline:
       configMap:
         by-path: metadata.name
         by-value: kpt-test-deployment
-        put-value: test-deployment
+        put-value: test-deployment-1
     - image: gcr.io/kpt-fn/search-replace:unstable
       configMap:
         by-path: metadata.labels.app
