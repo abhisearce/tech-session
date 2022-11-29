@@ -20,7 +20,7 @@ steps:
       sed -i "s/tag/$SHORT_SHA/g" ./deployment.yaml &&
       kpt fn render
       sed -i "s/$deplname/kpt-test-deployment/g" ./Kptfile &&
-      sed -i "s/$SHORT_SHA/tag/g" ./deployment.yaml &&
+      sed -i "s/$SHORT_SHA/tag/g" ./deployment.yaml
     done < ./consumer_names.txt
   
  # - --filename=./test/consumer-*
