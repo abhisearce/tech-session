@@ -14,7 +14,7 @@ steps:
    - run
    - exmaple-package
    
-: '
+/*
 # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   entrypoint: 'bash'
@@ -36,6 +36,6 @@ steps:
   #- --image=gcr.io/folkloric-folio-358909/private/service:$SHORT_SHA
   - --location=asia-south1
   - --cluster=tech-session
- '
+ */
 options:
  logging: CLOUD_LOGGING_ONLY
