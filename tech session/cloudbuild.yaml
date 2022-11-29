@@ -8,7 +8,13 @@ steps:
       "--cache-ttl=6h",
       "--destination=us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image"
     ]
-  
+- name: gcr.io/kpt-dev/kpt:latest
+  args:
+   - fn
+   - run
+   - exmaple-package
+   
+: '
 # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   entrypoint: 'bash'
@@ -30,5 +36,6 @@ steps:
   #- --image=gcr.io/folkloric-folio-358909/private/service:$SHORT_SHA
   - --location=asia-south1
   - --cluster=tech-session
+ '
 options:
  logging: CLOUD_LOGGING_ONLY
