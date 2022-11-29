@@ -6,28 +6,36 @@ steps:
       "--dockerfile=Dockerfile",
       "--cache=true",
       "--cache-ttl=6h",
-      "--destination=us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image:$SHORT_SHA"
+      "--destination=us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image"
     ]
-  
+- name: gcr.io/kpt-dev/kpt:latest
+  args:
+   - fn
+   - run
+   - hello
+   
+
 # deploy container image to GKE
-- name: "gcr.io/cloud-builders/gke-deploy"
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    while IFS=' ' read -r deplname path; do
-      sed -i "s/kpt-test-deployment/$deplname/g" ./Kptfile &&
-      sed -i "s/tag/$SHORT_SHA/g" ./deployment.yaml &&
-      kpt fn render
-      sed -i "s/$deplname/kpt-test-deployment/g" ./Kptfile &&
-      sed -i "s/$SHORT_SHA/tag/g" ./deployment.yaml
-    done < ./consumer_names.txt
+#- name: "gcr.io/cloud-builders/gke-deploy"
+#  entrypoint: 'bash'
+#  args: 
+#  - run
+#  - '-c'
+#  - |
+#    while IFS=' ' read -r deplname path; do
+ #     sed -i "s/kpt-test-deployment/$deplname/g" ./Kptfile &&
+#      sed -i "s/tag/$SHORT_SHA/g" ./deployment.yaml &&
+#      kpt fn render
+#      sed -i "s/$deplname/kpt-test-deployment/g" ./Kptfile &&
+#      sed -i "s/$SHORT_SHA/tag/g" ./deployment.yaml &&
+#    done < ./consumer_names.txt
   
  # - --filename=./test/consumer-*
   #- --filename=./test/consumer-02
   #- --name=jahsdj
   #- --image=gcr.io/folkloric-folio-358909/private/service:$SHORT_SHA
-  - --location=asia-south1-a
+  - --location=asia-south1
   - --cluster=tech-session
+ */
 options:
  logging: CLOUD_LOGGING_ONLY
