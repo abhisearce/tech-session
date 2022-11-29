@@ -12,8 +12,7 @@ steps:
   args:
    - fn
    - run
-   - hello
-   
+   - tech-session
 
 # deploy container image to GKE
 #- name: "gcr.io/cloud-builders/gke-deploy"
