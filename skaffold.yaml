@@ -1,0 +1,8 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+deploy:
+  kpt:
+    dir:
+      k8s
+  # manifests:
+  # k8s/*.yaml

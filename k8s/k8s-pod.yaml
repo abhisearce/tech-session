@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kpt-testing
+spec:
+  containers:
+  - name: kpt-testing
+    image: us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image
