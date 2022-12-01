@@ -1,10 +1,10 @@
 steps:
 # Build and tag using commit sha
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image:${COMMIT_SHA}', '-f', 'Dockerfile']
+  args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/searce-playground-v1/kpt-tech/kpt-image:${COMMIT_SHA}', '-f', 'Dockerfile']
 # Push the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image:${COMMIT_SHA}']
+  args: ['push', 'us-central1-docker.pkg.dev/searce-playground-v1/kpt-tech/kpt-image:${COMMIT_SHA}']
 # Create release in Google Cloud Deploy
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
@@ -14,7 +14,7 @@ steps:
       "--delivery-pipeline", "kpt-tech",
       "--region", "asia-south1-a",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "kpt-tech=us-central1-docker.pkg.dev/searce-playground-v1/kpt-test-repo/kpt-image:${COMMIT_SHA}"
+      "--images", "kpt-tech=us-central1-docker.pkg.dev/searce-playground-v1/kpt-tech/kpt-image:${COMMIT_SHA}"
     ]
 options:
  logging: CLOUD_LOGGING_ONLY
