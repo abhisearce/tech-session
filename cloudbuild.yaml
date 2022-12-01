@@ -12,9 +12,9 @@ steps:
     [
       "deploy", "releases", "create", "rel-${SHORT_SHA}",
       "--delivery-pipeline", "kpt-tech",
-      "--region", "us-central1",
+      "--region", "asia-south1-a",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "=us-central1-docker.pkg.dev/$PROJECT_ID/repo/kpt-test-repo:${COMMIT_SHA}"
+      "--images", "kpt-tech=us-central1-docker.pkg.dev/$PROJECT_ID/repo/kpt-test-repo:${COMMIT_SHA}"
     ]
 options:
  logging: CLOUD_LOGGING_ONLY
