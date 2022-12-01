@@ -1,0 +1,20 @@
+steps:
+# Build and tag using commit sha
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/repo/kpt-test-repo:${COMMIT_SHA}', '-f', 'dockerfile']
+# Push the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/repo/kpt-test-repo:${COMMIT_SHA}']
+# Create release in Google Cloud Deploy
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: gcloud
+  args:
+    [
+      "deploy", "releases", "create", "rel-${SHORT_SHA}",
+      "--delivery-pipeline", "tech-session",
+      "--region", "us-central1",
+      "--annotations", "commitId=${REVISION_ID}",
+      "--images", "=us-central1-docker.pkg.dev/$PROJECT_ID/repo/kpt-test-repo:${COMMIT_SHA}"
+    ]
+options:
+ logging: CLOUD_LOGGING_ONLY
