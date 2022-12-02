@@ -3,7 +3,7 @@ steps:
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
     [
-      "--dockerfile=dockerfile",
+      "--dockerfile=Dockerfile",
       "--cache=true",
       "--cache-ttl=6h",
       "--destination=us-central1-docker.pkg.dev/$PROJECT_ID/kpt-test-repo/kpt-image:${SHORT_SHA}"
