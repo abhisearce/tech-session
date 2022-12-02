@@ -17,7 +17,7 @@ steps:
       "--delivery-pipeline", "kpt-tech",
       "--region", "asia-south1-a",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "kpt-tech=us-central1-docker.pkg.dev/$PROJECT_ID/tech-kpt/kpt-image:${COMMIT_SHA}"
+      "--images", "kpt-tech=us-central1-docker.pkg.dev/$PROJECT_ID/kpt-tech/kpt-image:${COMMIT_SHA}"
     ]
 options:
  logging: CLOUD_LOGGING_ONLY
