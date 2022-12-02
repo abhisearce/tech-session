@@ -15,4 +15,4 @@ metadata:
  name: kpt-tech
 description: development cluster
 gke:
- cluster: projects/searce-playground-v1/locations/asia-south1-a/clusters/shreya-cluster-test
+ cluster: projects/searce-playground-v1/locations/asia-south1-a/clusters/shreya-test-cluster
