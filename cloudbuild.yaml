@@ -15,7 +15,7 @@ steps:
     [
       "deploy", "releases", "create", "rel-${SHORT_SHA}",
       "--delivery-pipeline", "kpt-tech",
-      "--region", "asia-south1-a",
+      "--region", "us-central1",
       "--annotations", "commitId=${REVISION_ID}",
       "--images", "kpt-tech=us-central1-docker.pkg.dev/$PROJECT_ID/kpt-tech/kpt-image:${COMMIT_SHA}"
     ]
