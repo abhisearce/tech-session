@@ -15,4 +15,4 @@ metadata:
  name: kpt-tech
 description: development cluster
 gke:
- cluster: projects/$PROJECT_ID/locations/us-central1-c/clusters/kpt-tech
+ cluster: projects/$PROJECT_ID/locations/us-central1/clusters/tech-kpt
