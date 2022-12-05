@@ -1,8 +1,12 @@
 apiVersion: skaffold/v2alpha16
 kind: Config
 deploy:
-  kpt:
-    dir:
-      k8s
+  kubectl:
+    manifests: ["k8s/k8s-pod.yaml"]
+    
+#deploy:
+#  kpt:
+#    dir:
+#     k8s
   # manifests:
   # k8s/*.yaml
